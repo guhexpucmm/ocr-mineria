@@ -47,20 +47,21 @@ public class Main extends Application {
     private ProgressBar progressBar;
     private Label label;
 
-    private Task task;
-
-    @Override
-    public void init() throws Exception {
-        super.init();
-        root = setRoot();
+    public Main() {
     }
 
     public static void main(String[] args) {
         logger.info("Iniciando programa...");
         launch(args);
-        StandardServiceRegistryBuilder.destroy(new HibernateUtil().getSessionFactory()
+        StandardServiceRegistryBuilder.destroy(HibernateUtil.getSessionFactory()
                 .getSessionFactoryOptions().getServiceRegistry());
         logger.info("Programa terminado.");
+    }
+
+    @Override
+    public void init() throws Exception {
+        super.init();
+        root = setRoot();
     }
 
     @Override
@@ -101,7 +102,7 @@ public class Main extends Application {
                 fadeSplash.setToValue(0.0);
                 fadeSplash.setOnFinished(actionEvent -> {
                     primaryStage.hide();
-                    if (primaryStage.isShowing() == false)
+                    if (!primaryStage.isShowing())
                         initCompletionHandler.complete();
                 });
                 fadeSplash.play();
