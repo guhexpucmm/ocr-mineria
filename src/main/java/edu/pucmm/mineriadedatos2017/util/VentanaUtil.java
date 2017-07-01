@@ -1,6 +1,7 @@
 package edu.pucmm.mineriadedatos2017.util;
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class VentanaUtil {
@@ -27,6 +28,7 @@ public class VentanaUtil {
         stage.setTitle(titulo);
         stage.setScene(new Scene(FXMLUtil.getInstance().getParentFromFXML(rutaFXML)));
         stage.toFront();
+        stage.getIcons().add(new Image("/icons/ocr_icon.png"));
         stage.setResizable(false);
 
         return this;

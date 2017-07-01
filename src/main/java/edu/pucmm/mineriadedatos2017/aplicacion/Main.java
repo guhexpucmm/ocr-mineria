@@ -118,6 +118,7 @@ public class Main extends Application {
         primaryStage.setMinWidth(PRELOADER_WIDTH);
         primaryStage.setMinHeight(PRELOADER_HEIGHT);
         primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.getIcons().add(new Image("/icons/ocr_icon.png"));
         primaryStage.setTitle("Cargando...");
         primaryStage.setAlwaysOnTop(false);
         primaryStage.show();
@@ -132,6 +133,7 @@ public class Main extends Application {
             stage.setMinWidth(900.0);
             stage.setMinHeight(600.0);
             stage.setTitle("OCR-Mineria");
+            stage.getIcons().add(new Image("/icons/ocr_icon.png"));
             stage.setMaximized(true);
             stage.setScene(new Scene(parent));
             stage.show();
