@@ -22,11 +22,20 @@
                   </Button>
                </children>
             </HBox>
-            <CustomTextField fx:id="txtField" promptText="URL o Path del archivo">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-            </CustomTextField>
+            <HBox fx:id="hBox2" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <CustomTextField fx:id="txtField" minWidth="700.0" promptText="URL o Path del archivo">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </CustomTextField>
+                  <Button fx:id="btnAnalizar" minWidth="150.0" mnemonicParsing="false" onAction="#btnAnalizarClick" text="Analizar">
+                     <HBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

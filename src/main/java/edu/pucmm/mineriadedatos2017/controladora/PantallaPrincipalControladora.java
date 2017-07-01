@@ -38,7 +38,13 @@ public class PantallaPrincipalControladora implements Initializable {
     private Button btnReconocerLetra;
 
     @FXML
+    private HBox hBox2;
+
+    @FXML
     private CustomTextField txtField;
+
+    @FXML
+    private Button btnAnalizar;
 
     public PantallaPrincipalControladora() {
         archivo = new SimpleStringProperty("");
@@ -57,6 +63,11 @@ public class PantallaPrincipalControladora implements Initializable {
     @FXML
     void btnReconocerLetraClick(ActionEvent event) {
         reconocerLetra();
+    }
+
+    @FXML
+    void btnAnalizarClick(ActionEvent event) {
+
     }
 
     @FXML
