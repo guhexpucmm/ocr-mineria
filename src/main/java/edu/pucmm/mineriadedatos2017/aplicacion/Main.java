@@ -141,6 +141,7 @@ public class Main extends Application {
         stackPane = new StackPane();
         stackPane.setPrefWidth(600);
         stackPane.setPrefHeight(400);
+        stackPane.getStylesheets().add("/css/main.css");
 
         vBox = new VBox();
         vBox.setAlignment(Pos.CENTER);
