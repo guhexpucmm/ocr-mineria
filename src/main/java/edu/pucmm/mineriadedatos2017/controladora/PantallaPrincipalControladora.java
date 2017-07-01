@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.CustomTextField;
@@ -59,23 +60,26 @@ public class PantallaPrincipalControladora implements Initializable {
     }
 
     @FXML
-    void stackPaneDragDetected(MouseEvent event) {
+    void vBoxDragDetected(MouseEvent event) {
 
     }
 
     @FXML
-    void stackPaneDragDone(DragEvent event) {
+    void vBoxDragDone(DragEvent event) {
 
     }
 
     @FXML
-    void stackPaneDragDropped(DragEvent event) {
+    void vBoxDragDropped(DragEvent event) {
 
     }
 
     @FXML
-    void stackPaneDragEntered(DragEvent event) {
+    void vBoxDragEntered(DragEvent event) {
+        if (event.getDragboard().hasFiles())
+            event.acceptTransferModes(TransferMode.COPY);
 
+        event.consume();
     }
 
     private void ejecutarModelo() {

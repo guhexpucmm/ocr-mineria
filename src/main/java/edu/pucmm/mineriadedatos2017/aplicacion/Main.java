@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -23,6 +24,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -113,9 +115,10 @@ public class Main extends Application {
         final Rectangle2D bounds = Screen.getPrimary().getBounds();
 
         primaryStage.setScene(scene);
+        primaryStage.setMinWidth(PRELOADER_WIDTH);
+        primaryStage.setMinHeight(PRELOADER_HEIGHT);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Cargando...");
-        primaryStage.setX(bounds.getMinX() + bounds.getWidth() / 2 - PRELOADER_WIDTH / 2);
-        primaryStage.setY(bounds.getMinY() + bounds.getHeight() / 2 - PRELOADER_HEIGHT / 2);
         primaryStage.setAlwaysOnTop(false);
         primaryStage.show();
     }
@@ -142,11 +145,12 @@ public class Main extends Application {
         stackPane.setPrefWidth(600);
         stackPane.setPrefHeight(400);
         stackPane.getStylesheets().add("/css/main.css");
+        stackPane.setCursor(Cursor.WAIT);
 
         vBox = new VBox();
         vBox.setAlignment(Pos.CENTER);
 
-        imageView = new ImageView(new Image("/fotos/pucmm-logo.png"));
+        imageView = new ImageView(new Image("/fotos/logo2.png"));
         VBox.setMargin(imageView, insets);
 
         progressBar = new ProgressBar();
