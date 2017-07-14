@@ -11,7 +11,7 @@ public class Entrenamiento {
     public Entrenamiento() {
         this.conexion = new Conexion();
         this.conexion.agregarNeuronas(CONTADOR_NEURONAS);
-        //this.setEntrenamientos;
+        //this.setEntrenamientos = LeerEscribirArchivos.
     }
 
     public void entrenar(ArrayList<Integer> entradas) {

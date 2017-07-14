@@ -1,19 +1,19 @@
 package edu.pucmm.mineriadedatos2017.controladora;
 
-import edu.pucmm.mineriadedatos2017.enums.Letra;
-import javafx.collections.FXCollections;
+import edu.pucmm.mineriadedatos2017.alerta.AlertaComboBox;
+import edu.pucmm.mineriadedatos2017.neural.Entrenamiento;
+import edu.pucmm.mineriadedatos2017.util.VentanaUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import org.controlsfx.control.PrefixSelectionComboBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +22,7 @@ public class PantallaPrincipalControladora implements Initializable {
 
     private GraphicsContext graphicsContext;
 
+    private Entrenamiento entrenamiento;
 
     @FXML
     private StackPane stackPane;
@@ -51,18 +52,7 @@ public class PantallaPrincipalControladora implements Initializable {
     private HBox hBox2;
 
     @FXML
-    private Label lblEntrenarComo;
-
-    @FXML
-    private PrefixSelectionComboBox<Letra> comboBox;
-
-    @FXML
-    private HBox hBox3;
-
-    @FXML
     private Button btnReconocerLetra;
-
-
 
     public PantallaPrincipalControladora() {
 
@@ -75,8 +65,6 @@ public class PantallaPrincipalControladora implements Initializable {
         graphicsContext = canvas.getGraphicsContext2D();
         graphicsContext.setStroke(Color.BLACK);
         graphicsContext.setLineWidth(5);
-
-        comboBox.setItems(FXCollections.observableArrayList(Letra.values()));
     }
 
     @FXML
@@ -109,11 +97,11 @@ public class PantallaPrincipalControladora implements Initializable {
 
     @FXML
     void btnEntrenarModeloClick(ActionEvent event) {
-
+        entrenarModelo();
     }
 
     private void reconocerLetra() {
-
+        new VentanaUtil(new Stage(), "Resultado", "/vista/Resultado.fxml").propiedades().abrir();
     }
 
     private void analizar() {
@@ -128,5 +116,10 @@ public class PantallaPrincipalControladora implements Initializable {
 
     private void borrar() {
         graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+    }
+
+    private void entrenarModelo() {
+        AlertaComboBox alertaComboBox = new AlertaComboBox();
+        String entrarComo = String.valueOf(alertaComboBox.showAndWait());
     }
 }
