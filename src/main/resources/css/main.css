@@ -35,3 +35,7 @@
 #btnAnalizar {
     -fx-border-width: 0 1px;
 }
+
+#canvas, #pane {
+    -fx-background-color: white;
+}
