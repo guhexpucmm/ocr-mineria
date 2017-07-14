@@ -14,15 +14,6 @@
     -fx-background-color: #f2f2f2;
 }
 
-#hBox2 {
-    -fx-background-color: #f2f2f2;
-    -fx-effect: dropshadow(three-pass-box, #222, 4, 0.0, 4, 4);
-    -fx-min-width: 680px;
-    -fx-max-width: 680px;
-    -fx-min-height: 56px;
-    -fx-max-height: 56px;
-}
-
 #txtField {
     -fx-background-color: #f2f2f2;
     -fx-border-width: 0;
@@ -33,10 +24,6 @@
     -fx-max-width: 500px;
 }
 
-#btnAnalizar {
-    -fx-border-width: 0 1px;
-}
-
 #canvas, #pane {
-    -fx-background-color: white;
+    -fx-background-color: rgba(255, 255, 255, 0.8);
 }
