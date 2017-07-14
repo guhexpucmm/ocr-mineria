@@ -123,3 +123,4 @@ public class PantallaPrincipalControladora implements Initializable {
         String entrarComo = String.valueOf(alertaComboBox.showAndWait());
     }
 }
+
