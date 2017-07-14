@@ -4,24 +4,22 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.*?>
-<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="stackPane" maxHeight="1.7976931348623157E308"
-           maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-           prefWidth="900.0" styleClass="stack-pane-principal" stylesheets="/css/main.css"
-           xmlns="http://javafx.com/javafx/8.0.111"
-           fx:controller="edu.pucmm.mineriadedatos2017.controladora.PantallaPrincipalControladora">
+<StackPane fx:id="stackPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="stack-pane-principal" stylesheets="/css/main.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pucmm.mineriadedatos2017.controladora.PantallaPrincipalControladora">
    <children>
       <VBox fx:id="vBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnBorrar" minHeight="18.0" mnemonicParsing="false" onAction="#btnBorrarClick" text="Borrar">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                  prefHeight="250.0" prefWidth="480.0" VBox.vgrow="NEVER">
+            <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefHeight="0.0" prefWidth="480.0">
                <children>
-                  <Canvas fx:id="canvas" height="250.0" onMouseDragged="#canvasMouseDragged"
-                          onMousePressed="#canvasMousePressed" width="480.0"/>
+                  <Button fx:id="btnBorrar" mnemonicParsing="false" onAction="#btnBorrarClick" text="Borrar">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="480.0" VBox.vgrow="NEVER">
+               <children>
+                  <Canvas fx:id="canvas" height="250.0" onMouseDragged="#canvasMouseDragged" onMousePressed="#canvasMousePressed" width="480.0" />
                </children>
                <VBox.margin>
                   <Insets top="5.0" />

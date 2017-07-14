@@ -1,21 +1,27 @@
 package edu.pucmm.mineriadedatos2017.controladora;
 
 import edu.pucmm.mineriadedatos2017.alerta.AlertaComboBox;
+import edu.pucmm.mineriadedatos2017.data.LeerEscribirArchivos;
+import edu.pucmm.mineriadedatos2017.data.SalidasValidas;
 import edu.pucmm.mineriadedatos2017.neural.Entrenamiento;
+import edu.pucmm.mineriadedatos2017.neural.SetEntrenamiento;
 import edu.pucmm.mineriadedatos2017.util.VentanaUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PantallaPrincipalControladora implements Initializable {
@@ -23,6 +29,7 @@ public class PantallaPrincipalControladora implements Initializable {
     private GraphicsContext graphicsContext;
 
     private Entrenamiento entrenamiento;
+    private int[] pixeles;
 
     @FXML
     private StackPane stackPane;
@@ -120,7 +127,19 @@ public class PantallaPrincipalControladora implements Initializable {
 
     private void entrenarModelo() {
         AlertaComboBox alertaComboBox = new AlertaComboBox();
-        String entrarComo = String.valueOf(alertaComboBox.showAndWait());
+        String letra = String.valueOf(alertaComboBox.showAndWait());
+
+        WritableImage writableImage = pane.snapshot(new SnapshotParameters(), new WritableImage( (int) canvas.getWidth(), (int) canvas.getHeight()));
+        writableImage.getPixelReader().getPixels((int) canvas.getLayoutX(), (int) canvas.getLayoutY(), (int) canvas.getWidth(), (int) canvas.getHeight(), null, pixeles, 0, 1);
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < pixeles.length; i++) {
+            list.add(pixeles[i]);
+        }
+
+        entrenamiento.agregarSetEntrenamiento(new SetEntrenamiento(list, SalidasValidas.getInstance().getSalidasValidas(letra)));
+        LeerEscribirArchivos.guardarEnArchivo(list, letra);
     }
 }
 
