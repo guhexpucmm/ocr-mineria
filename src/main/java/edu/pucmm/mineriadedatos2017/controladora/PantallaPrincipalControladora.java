@@ -1,15 +1,19 @@
 package edu.pucmm.mineriadedatos2017.controladora;
 
+import edu.pucmm.mineriadedatos2017.enums.Letra;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import org.controlsfx.control.PrefixSelectionComboBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,7 +48,20 @@ public class PantallaPrincipalControladora implements Initializable {
     private Button btnSuperEntrenamiento;
 
     @FXML
+    private HBox hBox2;
+
+    @FXML
+    private Label lblEntrenarComo;
+
+    @FXML
+    private PrefixSelectionComboBox<Letra> comboBox;
+
+    @FXML
+    private HBox hBox3;
+
+    @FXML
     private Button btnReconocerLetra;
+
 
 
     public PantallaPrincipalControladora() {
@@ -58,6 +75,8 @@ public class PantallaPrincipalControladora implements Initializable {
         graphicsContext = canvas.getGraphicsContext2D();
         graphicsContext.setStroke(Color.BLACK);
         graphicsContext.setLineWidth(5);
+
+        comboBox.setItems(FXCollections.observableArrayList(Letra.values()));
     }
 
     @FXML
